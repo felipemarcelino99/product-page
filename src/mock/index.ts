@@ -1,7 +1,8 @@
-import type { Product, Review } from "../types";
+import type { Product } from "../types";
 
-export const PRODUCTS: Record<number, Product> = {
-  0: {
+export const PRODUCTS: Product[] = [
+  {
+    id: 1,
     name: "Casual Comfortable Jeans",
     oldPrice: "109,90",
     price: "71,90",
@@ -154,8 +155,43 @@ export const PRODUCTS: Record<number, Product> = {
         Garantia do vendedor: 15 dias
     `,
     rate: 4.6,
+    reviews: [
+      {
+        id: 1,
+        name: "João",
+        review: "Calça muito confortável e veste muito bem!",
+        rate: 5,
+      },
+      {
+        id: 2,
+        name: "Ana",
+        review:
+          "Material excelente, mas achei que a modelagem poderia ser um pouco mais ajustada.",
+        rate: 4,
+      },
+      {
+        id: 3,
+        name: "Carlos",
+        review: "Entrega super rápida! Produto igualzinho às fotos.",
+        rate: 5,
+      },
+      {
+        id: 3,
+        name: "Mariana",
+        review:
+          "Gostei do tecido e do caimento. Só acho que o preço poderia ser mais em conta.",
+        rate: 4,
+      },
+      {
+        id: 4,
+        name: "Eduardo",
+        review: "Ficou perfeita no corpo! Vou comprar outra cor.",
+        rate: 5,
+      },
+    ],
   },
-  1: {
+  {
+    id: 2,
     name: "Casual Comfortable Jeans - 2",
     oldPrice: "59,97",
     price: "52,90",
@@ -306,54 +342,25 @@ export const PRODUCTS: Record<number, Product> = {
         Garantia do vendedor: 15 dias
     `,
     rate: 4.3,
+    reviews: [
+      {
+        id: 1,
+        name: "Larissa",
+        review: "Jeans leve e confortável, ótimo para o dia a dia.",
+        rate: 5,
+      },
+      {
+        id: 2,
+        name: "Fernando",
+        review: "A calça é boa, mas demorou um pouco para chegar.",
+        rate: 3,
+      },
+      {
+        id: 3,
+        name: "Beatriz",
+        review: "Adorei! Combina com tudo e é super estilosa.",
+        rate: 5,
+      },
+    ],
   },
-};
-
-export const REVIEWS: Record<number, Record<number, Review>> = {
-  0: {
-    0: {
-      name: "João",
-      review: "Calça muito confortável e veste muito bem!",
-      rate: 5,
-    },
-    1: {
-      name: "Ana",
-      review:
-        "Material excelente, mas achei que a modelagem poderia ser um pouco mais ajustada.",
-      rate: 4,
-    },
-    2: {
-      name: "Carlos",
-      review: "Entrega super rápida! Produto igualzinho às fotos.",
-      rate: 5,
-    },
-    3: {
-      name: "Mariana",
-      review:
-        "Gostei do tecido e do caimento. Só acho que o preço poderia ser mais em conta.",
-      rate: 4,
-    },
-    4: {
-      name: "Eduardo",
-      review: "Ficou perfeita no corpo! Vou comprar outra cor.",
-      rate: 5,
-    },
-  },
-  1: {
-    0: {
-      name: "Larissa",
-      review: "Jeans leve e confortável, ótimo para o dia a dia.",
-      rate: 5,
-    },
-    1: {
-      name: "Fernando",
-      review: "A calça é boa, mas demorou um pouco para chegar.",
-      rate: 3,
-    },
-    2: {
-      name: "Beatriz",
-      review: "Adorei! Combina com tudo e é super estilosa.",
-      rate: 5,
-    },
-  },
-};
+];

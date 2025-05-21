@@ -1,15 +1,13 @@
-import { useState } from "react";
-import type { TVariant } from "../../../types";
+import { useProduct } from "../../../contexts/ProductContext";
 import Variant from "../../common/Variant";
+import type { TVariant } from "../../../types";
 
 type VariantsProps = {
   items: TVariant[];
 };
 
 export function Variants({ items }: VariantsProps) {
-  const [selectedVariantId, setSelectedVariantId] = useState<number | null>(
-    null
-  );
+  const { selectedVariant, setSelectedVariant } = useProduct();
 
   return (
     <div className="flex items-center gap-1.5">
@@ -17,8 +15,8 @@ export function Variants({ items }: VariantsProps) {
         <Variant
           key={item.id}
           item={item}
-          active={selectedVariantId === item.id}
-          onClick={() => setSelectedVariantId(item.id)}
+          active={selectedVariant === item.id}
+          onClick={() => setSelectedVariant(item.id)}
         />
       ))}
     </div>

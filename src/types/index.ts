@@ -15,27 +15,30 @@ export type Image = {
   url: string;
 };
 
-type ProductInventory = {
+export type ProductInventory = {
   variantId: number;
   sizeId: number;
   quantity: number;
 };
 
 export type Product = {
+  id: number;
   name: string;
   oldPrice: string;
   price: string;
   discount: string;
   maxSplit: number;
-  inventory: Record<number, ProductInventory> | ProductInventory[];
-  variants: Record<number, TVariant> | TVariant[];
-  sizes: Record<number, TSize> | TSize[];
+  inventory: ProductInventory[];
+  variants: TVariant[];
+  sizes: TSize[];
   images: Record<"black" | "blue" | "white", Record<number, Image>>;
   description: string;
   rate: number;
+  reviews: Review[];
 };
 
 export type Review = {
+  id: number;
   name: string;
   review: string;
   rate: number;
