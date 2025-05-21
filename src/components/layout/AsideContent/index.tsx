@@ -1,4 +1,3 @@
-import React from "react";
 import Breadcrumb from "../../common/Breadcrumb";
 import Tag from "../../common/Tag";
 import Title from "../../common/Title";
