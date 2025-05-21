@@ -45,62 +45,60 @@ export const PRODUCTS: Product[] = [
         id: 1,
         value: "Black",
         url: "/images/model-black.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-black.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-black-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-black-3.avif",
+          },
+        ],
       },
       {
         id: 2,
         value: "Blue",
         url: "/images/model-blue.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-blue.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-blue-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-blue-3.avif",
+          },
+        ],
       },
       {
         id: 3,
         value: "White",
         url: "/images/model-white.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-white.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-white-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-white-3.avif",
+          },
+        ],
       },
     ],
-    images: {
-      black: {
-        0: {
-          id: 1,
-          url: "/images/model-black.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-black-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-black-3.avif",
-        },
-      },
-      blue: {
-        0: {
-          id: 1,
-          url: "/images/model-blue.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-blue-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-blue-3.avif",
-        },
-      },
-      white: {
-        0: {
-          id: 1,
-          url: "/images/model-white.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-white-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-white-3.avif",
-        },
-      },
-    },
     description: `
         Olá, Sejam bem vindos a nossa loja, somos fabricantes de Roupas Femininas e Masculinas, estamos no mercado da moda há 10 anos, com o intuito de superar as expectativas dos nossos clientes.
 
@@ -124,22 +122,13 @@ export const PRODUCTS: Product[] = [
         Tamanho 38 - tem 38cm a 39cm
         Tamanho 40 - tem 40cm a 41cm
         Tamanho 42 - tem 42cm a 43cm
-        Tamanho 44 - tem 44cm a 45cm
-        Tamanho 46 - tem 46cm a 47cm
-        Tamanho 48 - tem 48cm a 49cm
-        Tamanho 50 - tem 50cm a 51cm
-        Tamanho 52 - tem 52cm a 53cm
 
         MEDIDAS DE COMPRIMENTO DA CALÇA: medir toda a lateral de fora da calça, da cintura até a barra.
         Tamanho 36 - tem 100cm a 103cm
         Tamanho 38 - tem 100cm a 103cm
         Tamanho 40 - tem 105cm a 108cm
         Tamanho 42 - tem 105cm a 108cm
-        Tamanho 44 - tem 105cm a 108cm
-        Tamanho 46 - tem 105cm a 108cm
-        Tamanho 48 - tem 105cm a 108cm
-        Tamanho 50 - tem 105cm a 108cm
-        Tamanho 52 - tem 105cm a 108cm
+
 
         DÚVIDAS FREQUENTES:
 
@@ -232,62 +221,60 @@ export const PRODUCTS: Product[] = [
         id: 1,
         value: "Black",
         url: "/images/model-black.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-black.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-black-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-black-3.avif",
+          },
+        ],
       },
       {
         id: 2,
         value: "Blue",
         url: "/images/model-blue.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-blue.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-blue-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-blue-3.avif",
+          },
+        ],
       },
       {
         id: 3,
         value: "White",
         url: "/images/model-white.avif",
+        images: [
+          {
+            id: 1,
+            url: "/images/model-white.avif",
+          },
+          {
+            id: 2,
+            url: "/images/model-white-2.avif",
+          },
+          {
+            id: 3,
+            url: "/images/model-white-3.avif",
+          },
+        ],
       },
     ],
-    images: {
-      black: {
-        0: {
-          id: 1,
-          url: "/images/model-black.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-black-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-black-3.avif",
-        },
-      },
-      blue: {
-        0: {
-          id: 1,
-          url: "/images/model-blue.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-blue-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-blue-3.avif",
-        },
-      },
-      white: {
-        0: {
-          id: 1,
-          url: "/images/model-white.avif",
-        },
-        1: {
-          id: 2,
-          url: "/images/model-white-2.avif",
-        },
-        2: {
-          id: 3,
-          url: "/images/model-white-3.avif",
-        },
-      },
-    },
     description: `
         Olá, Sejam bem vindos a nossa loja, somos fabricantes de Roupas Femininas e Masculinas, estamos no mercado da moda há 10 anos, com o intuito de superar as expectativas dos nossos clientes.
 
@@ -311,22 +298,12 @@ export const PRODUCTS: Product[] = [
         Tamanho 38 - tem 38cm a 39cm
         Tamanho 40 - tem 40cm a 41cm
         Tamanho 42 - tem 42cm a 43cm
-        Tamanho 44 - tem 44cm a 45cm
-        Tamanho 46 - tem 46cm a 47cm
-        Tamanho 48 - tem 48cm a 49cm
-        Tamanho 50 - tem 50cm a 51cm
-        Tamanho 52 - tem 52cm a 53cm
 
         MEDIDAS DE COMPRIMENTO DA CALÇA: medir toda a lateral de fora da calça, da cintura até a barra.
         Tamanho 36 - tem 100cm a 103cm
         Tamanho 38 - tem 100cm a 103cm
         Tamanho 40 - tem 105cm a 108cm
         Tamanho 42 - tem 105cm a 108cm
-        Tamanho 44 - tem 105cm a 108cm
-        Tamanho 46 - tem 105cm a 108cm
-        Tamanho 48 - tem 105cm a 108cm
-        Tamanho 50 - tem 105cm a 108cm
-        Tamanho 52 - tem 105cm a 108cm
 
         DÚVIDAS FREQUENTES:
 
@@ -341,7 +318,7 @@ export const PRODUCTS: Product[] = [
 
         Garantia do vendedor: 15 dias
     `,
-    rate: 4.3,
+    rate: 4,
     reviews: [
       {
         id: 1,

@@ -1,5 +1,5 @@
 import { Indent } from "../../common/Indent";
-import { AlignJustify, ShoppingCart, SunMoon } from "lucide-react";
+import { AlignJustify, ShoppingCart } from "lucide-react";
 
 export function Header() {
   return (
@@ -11,9 +11,6 @@ export function Header() {
             <h1 className="name-logo">Felipe Marcelino</h1>
           </div>
           <div className="flex items-center gap-5">
-            <button>
-              <SunMoon />
-            </button>
             <button>
               <ShoppingCart />
             </button>

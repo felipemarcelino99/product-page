@@ -1,30 +1,26 @@
+import Image from "../../common/Image";
+import { useProduct } from "../../../contexts/ProductContext";
+
 export function Images() {
+  const { images, setPrincipalImage, principalImage, variant } = useProduct();
+
   return (
     <div className="flex items-start gap-1.5 max-w-[47%] flex-1">
       <div className="max-w-20 flex flex-col items-center gap-1.5">
-        <img
-          src="/images/model-black.avif"
-          alt="Calcça na cor preta"
-          width={80}
-          height={80}
-        />
-        <img
-          src="/images/model-blue.avif"
-          alt="Calcça na cor azul"
-          width={80}
-          height={80}
-        />
-        <img
-          src="/images/model-white.avif"
-          alt="Calcça na cor branca"
-          width={80}
-          height={80}
-        />
+        {images?.map((img) => {
+          return (
+            <Image
+              key={img.id}
+              item={img}
+              onClick={() => setPrincipalImage(img.url)}
+            />
+          );
+        })}
       </div>
       <div className="w-full">
         <img
-          src="/images/model-black.avif"
-          alt="Calcça na cor preta"
+          src={principalImage}
+          alt={`Calça na cor ${variant?.value}`}
           width={1024}
           height={1024}
         />

@@ -2,6 +2,7 @@ export type TVariant = {
   id: number;
   value: string;
   url: string;
+  images: Image[];
 };
 
 export type TSize = {
@@ -31,7 +32,6 @@ export type Product = {
   inventory: ProductInventory[];
   variants: TVariant[];
   sizes: TSize[];
-  images: Record<"black" | "blue" | "white", Record<number, Image>>;
   description: string;
   rate: number;
   reviews: Review[];
@@ -42,4 +42,11 @@ export type Review = {
   name: string;
   review: string;
   rate: number;
+};
+
+export type Address = {
+  logradouro: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
 };

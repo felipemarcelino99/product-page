@@ -9,6 +9,7 @@ import { Sizes } from "../Sizes";
 import { Select } from "../../common/Select";
 import Button from "../../common/Button";
 import { useProduct } from "../../../contexts/ProductContext";
+import CepForm from "../../common/CepForm";
 
 export function AsideContent() {
   const {
@@ -17,6 +18,7 @@ export function AsideContent() {
     quantity,
     selectedQuantity,
     setSelectedQuantity,
+    product,
   } = useProduct();
 
   return (
@@ -26,11 +28,11 @@ export function AsideContent() {
 
         <Tag label="Mais vendido" />
 
-        <Title tag="h2" label="Casual Comfortable Jeans" className="mt-1" />
+        <Title tag="h2" label={product.name} className="mt-1" />
 
         <Rating
           name="half-rating-read"
-          defaultValue={4.3}
+          defaultValue={product.rate}
           precision={0.5}
           readOnly
         />
@@ -51,6 +53,8 @@ export function AsideContent() {
             onChange={setSelectedQuantity}
           />
         </div>
+
+        <CepForm />
 
         <Button label="Comprar agora" className="mb-2.5" />
 

@@ -1,6 +1,13 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
-import type { Product, TSize, TVariant } from "../types";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import type { Image, Product, TSize, TVariant } from "../types";
 import { PRODUCTS } from "../mock";
+import { getWithExpiry, setWithExpiry } from "../lib/utils";
 
 interface IProductContext {
   products: Product[];
@@ -14,6 +21,10 @@ interface IProductContext {
   quantity: number;
   selectedQuantity: number;
   setSelectedQuantity: (id: number) => void;
+  variant: TVariant | undefined;
+  images: Image[] | undefined;
+  principalImage: string | undefined;
+  setPrincipalImage: (id: string) => void;
 }
 
 interface IProductProvider {
@@ -23,11 +34,53 @@ interface IProductProvider {
 const ProductContext = createContext<IProductContext>({} as IProductContext);
 
 const ProductProvider: React.FC<IProductProvider> = ({ children }) => {
+  const saved = getWithExpiry("selectedProduct");
+
+  const initialProduct = saved?.product || PRODUCTS[0];
+  const initialVariant = saved?.variant || PRODUCTS[0].variants[0];
+  const initialVariantId = saved?.selectedVariant ?? 1;
+  const initialImages = saved?.images || PRODUCTS[0].variants[0].images;
+  const initialPrincipalImage =
+    saved?.principalImage || PRODUCTS[0].variants[0].images[0].url;
+
   const [products] = useState<Product[]>(PRODUCTS);
-  const [product] = useState<Product>(PRODUCTS[0]);
-  const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
-  const [selectedSize, setSelectedSize] = useState<number | null>(null);
-  const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
+  const [product] = useState<Product>(initialProduct);
+  const [selectedVariant, setSelectedVariant] = useState<number | null>(
+    initialVariantId
+  );
+  const [variant, setVariant] = useState<TVariant | undefined>(initialVariant);
+  const [selectedSize, setSelectedSize] = useState<number | null>(
+    saved?.selectedSize ?? null
+  );
+  const [selectedQuantity, setSelectedQuantity] = useState<number>(
+    saved?.selectedQuantity ?? 1
+  );
+  const [images, setImages] = useState<Image[] | undefined>(initialImages);
+  const [principalImage, setPrincipalImage] = useState<string | undefined>(
+    initialPrincipalImage
+  );
+
+  useEffect(() => {
+    const selectedData = {
+      product,
+      images,
+      principalImage,
+      variant,
+      selectedVariant,
+      selectedSize,
+      selectedQuantity,
+    };
+
+    setWithExpiry("selectedProduct", selectedData, 15 * 60 * 1000);
+  }, [
+    selectedVariant,
+    selectedSize,
+    selectedQuantity,
+    product,
+    images,
+    principalImage,
+    variant,
+  ]);
 
   const variants = product.variants;
   const sizes = product.sizes;
@@ -56,6 +109,21 @@ const ProductProvider: React.FC<IProductProvider> = ({ children }) => {
     inventory.some((inv) => inv.variantId === variant.id && inv.quantity > 0)
   );
 
+  useEffect(() => {
+    const variantImages = product?.variants?.find(
+      (item) => item.id === selectedVariant
+    )?.images;
+
+    const variant = product?.variants?.find(
+      (item) => item.id === selectedVariant
+    );
+
+    setVariant(variant);
+    setImages(variantImages);
+
+    if (variantImages) setPrincipalImage(variantImages[0].url);
+  }, [selectedVariant, product]);
+
   const contextValues = useMemo(
     () => ({
       products,
@@ -69,6 +137,10 @@ const ProductProvider: React.FC<IProductProvider> = ({ children }) => {
       quantity,
       selectedQuantity,
       setSelectedQuantity,
+      variant,
+      images,
+      principalImage,
+      setPrincipalImage,
     }),
     [
       products,
@@ -80,6 +152,10 @@ const ProductProvider: React.FC<IProductProvider> = ({ children }) => {
       quantity,
       selectedQuantity,
       setSelectedQuantity,
+      variant,
+      images,
+      principalImage,
+      setPrincipalImage,
     ]
   );
 
