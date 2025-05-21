@@ -36,12 +36,12 @@ const ProductContext = createContext<IProductContext>({} as IProductContext);
 const ProductProvider: React.FC<IProductProvider> = ({ children }) => {
   const saved = getWithExpiry("selectedProduct");
 
-  const initialProduct = saved?.product || PRODUCTS[0];
-  const initialVariant = saved?.variant || PRODUCTS[0].variants[0];
+  const initialProduct = saved?.product || PRODUCTS[1];
+  const initialVariant = saved?.variant || PRODUCTS[1].variants[0];
   const initialVariantId = saved?.selectedVariant ?? 1;
-  const initialImages = saved?.images || PRODUCTS[0].variants[0].images;
+  const initialImages = saved?.images || PRODUCTS[1].variants[0].images;
   const initialPrincipalImage =
-    saved?.principalImage || PRODUCTS[0].variants[0].images[0].url;
+    saved?.principalImage || PRODUCTS[1].variants[0].images[0].url;
 
   const [products] = useState<Product[]>(PRODUCTS);
   const [product] = useState<Product>(initialProduct);

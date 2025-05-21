@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# 🛍️ Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém uma página de produto com funcionalidades completas de seleção de variações, tamanhos, quantidade e zoom na imagem. Desenvolvido com **React**, **TypeScript**, **TailwindCSS** e armazenamento temporário via `localStorage`.
 
-Currently, two official plugins are available:
+## 📦 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- TypeScript
+- TailwindCSS
+- Context API
+- Local Storage com expiração (`setWithExpiry`, `getWithExpiry`)
+- Lib de zoom na imagem (`react-image-magnify`)
 
-## Expanding the ESLint configuration
+## 📸 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Listagem de variações do produto (ex: cor, modelo)
+- Seleção de tamanhos disponíveis conforme o estoque
+- Escolha de quantidade limitada à disponibilidade
+- Zoom automático ao passar o mouse sobre a imagem
+- Armazenamento temporário da seleção do usuário por 15 minutos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Como rodar o projeto
+
+```bash
+git clone https://github.com/felipemarcelino99/product-page.git
+cd product-page
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Abra `http://localhost:5173` no seu navegador.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧪 Testando produtos diferentes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+O produto atualmente exibido está sendo definido manualmente no contexto, usando `PRODUCTS[1]`.
+
+Se quiser alterar o produto exibido (para testar outro conjunto de variações, imagens e tamanhos), basta editar o arquivo:
+
+```ts
+// src/contexts/ProductContext.tsx
+const [product, setProduct] = useState<Product>(PRODUCTS[1]); // ← aqui
+```
+
+Altere para `PRODUCTS[0]` ou outro índice disponível no mock:
+
+```ts
+const [product, setProduct] = useState<Product>(PRODUCTS[0]);
 ```
